@@ -17,36 +17,36 @@ class App extends Component {
     imagesAlreadyClicked: [],
     status: "Click an image to begin!"
   };
-  
+
 
   handleImageClick = id => {
-    var that=this
+    var that = this
     const picArray = this.state.imagesAlreadyClicked;
     console.log("***", this.state.imagesAlreadyClicked);
     console.log("####", picArray.includes(id));
 
     if (picArray.includes(id)) {
-      if (this.state.currentScore>this.state.topScore){
+      if (this.state.currentScore > this.state.topScore) {
         this.setState({
           topScore: this.state.currentScore
         })
       }
       this.setState({
         status: "You guessed incorrect!",
-        
+
       })
-      
+
       document.querySelector("#status").classList.add("red-text")
       setTimeout(function () {
         document.querySelector("#status").classList.remove("red-text")
         that.setState({
-          
+
           currentScore: 0,
           imagesAlreadyClicked: [],
-          status:"Click any image to begin!"
+          status: "Click any image to begin!"
         })
       }, 500)
-      
+
     }
     else {
       this.state.imagesAlreadyClicked.push(id)
@@ -74,7 +74,7 @@ class App extends Component {
         topScore: score,
         currentScore: 0,
         imagesAlreadyClicked: [],
-        status:"Click any image to begin!"
+        status: "Click any image to begin!"
       })
     }
     // take the current Pictures array and reorder
@@ -112,12 +112,13 @@ class App extends Component {
 
           <Title>Clicky Game!</Title>
           <h1>Click on an image to earn points, but don't click on any more than once!</h1>
-          
+          <br/>
+
           {this.state.pictures.map((pictures, key) => (
             <PictureCard
               handleImageClick={this.handleImageClick}
               id={pictures.id}
-              key ={key}
+              key={key}
               name={pictures.name}
               image={pictures.image}
             />

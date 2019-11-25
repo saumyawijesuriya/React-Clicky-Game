@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PictureCard from "./components/PictureCard/PictureCard";
+import PictureChar from "./components/PictureCard/PictureChar";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import Navbar from "./components/Navbar";
@@ -115,7 +115,7 @@ class App extends Component {
           <br/>
 
           {this.state.pictures.map((pictures, key) => (
-            <PictureCard
+            <PictureChar
               handleImageClick={this.handleImageClick}
               id={pictures.id}
               key={key}
